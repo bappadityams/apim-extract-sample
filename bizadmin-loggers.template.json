@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/loggers",
+      "name": "[concat(parameters('apimServiceName'), '/BizAdminAppService')]",
+      "properties": {
+        "loggerType": "applicationInsights",
+        "credentials": {
+          "instrumentationKey": "{{Logger-Credentials--6279898246346111f891e33b}}"
+        },
+        "isBuffered": true,
+        "resourceId": "/subscriptions/022195f9-7498-4b16-92dc-4abd8ca173da/resourceGroups/BizAdmin/providers/microsoft.insights/components/BizAdminAppService"
+      }
+    }
+  ]
+}

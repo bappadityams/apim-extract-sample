@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/demo-conference-api;rev=1/9aace366-e63d-4a70-b8c8-0f039bd3d67c')]",
+      "properties": {
+        "apiId": "/apis/demo-conference-api;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/echo-api;rev=1/9acf098e-9eef-4bdb-bd97-b497a3377a55')]",
+      "properties": {
+        "apiId": "/apis/echo-api;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/myprofileapibackend;rev=1/ff889aee-5d67-4bf5-81e1-3ea6f80e9ebc')]",
+      "properties": {
+        "apiId": "/apis/myprofileapibackend;rev=1"
+      }
+    },
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service/apis/releases",
+      "name": "[concat(parameters('apimServiceName'), '/test;rev=1/41d54450-2108-4329-9879-9f00314f50b1')]",
+      "properties": {
+        "apiId": "/apis/test;rev=1"
+      }
+    }
+  ]
+}

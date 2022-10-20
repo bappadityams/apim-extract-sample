@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2021-08-01",
+      "type": "Microsoft.ApiManagement/service",
+      "name": "[concat(parameters('apimServiceName'))]",
+      "identity": {
+        "principalId": "d20cdf49-0ddd-4638-bfe9-a3c03fbf6146",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "type": "SystemAssigned"
+      },
+      "location": "East US",
+      "tags": {},
+      "sku": {
+        "capacity": 1,
+        "name": "Developer"
+      },
+      "properties": {
+        "apiVersionConstraint": {},
+        "customProperties": {
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11": "false",
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10": "false",
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11": "false",
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10": "false",
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30": "false",
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2": "false",
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168": "false",
+          "microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Ssl30": "false"
+        },
+        "disableGateway": false,
+        "notificationSenderEmail": "apimgmt-noreply@mail.windowsazure.com",
+        "platformVersion": "stv2",
+        "provisioningState": "Succeeded",
+        "publicNetworkAccess": "Enabled",
+        "publisherEmail": "bbanerjee@microsoft.com",
+        "publisherName": "bappa",
+        "restore": false,
+        "targetProvisioningState": "",
+        "virtualNetworkType": "None"
+      }
+    }
+  ]
+}
